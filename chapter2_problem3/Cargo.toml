@@ -1,0 +1,6 @@
+[package]
+name = "cs185c"
+version = "0.1.0"
+authors = ["TylerWasniowski <TylerWasniowski@gmail.com>"]
+
+[dependencies]
