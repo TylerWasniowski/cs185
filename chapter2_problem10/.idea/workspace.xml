@@ -102,7 +102,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="448" />
     <option name="y" value="-42" />
     <option name="width" value="2196" />
@@ -135,6 +135,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/Cargo.toml" />
@@ -202,12 +203,12 @@
       <option name="presentableId" value="Default" />
       <updated>1567654960727</updated>
       <workItem from="1567654962856" duration="10442000" />
-      <workItem from="1567670313294" duration="16549000" />
+      <workItem from="1567670313294" duration="16691000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26991000" />
+    <option name="totallyTimeSpent" value="27133000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1513" height="973" extended-state="6" />
