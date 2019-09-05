@@ -214,11 +214,6 @@ impl HmmModel {
     }
 }
 
-fn print_usage_and_panic() {
-    println!("Usage: cargo run <number_of_hidden_state_symbols> <input_file>");
-    panic!("Incorrect command arguments");
-}
-
 fn main() {
     let number_of_observation_symbols = 27;
 
@@ -271,4 +266,9 @@ fn main() {
         }
         println!("{:?}", state_max_probability.0);
     }
+}
+
+fn print_usage_and_panic() {
+    println!("Usage: cargo run <number_of_hidden_state_symbols> <input_file>");
+    panic!("Incorrect command arguments");
 }

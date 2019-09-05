@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main.rs" line="255" mnemonic="7" />
+    <bookmark url="file://$PROJECT_DIR$/src/main.rs" line="250" mnemonic="7" />
   </component>
   <component name="CargoProjects">
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb50141b-c428-4445-87f1-21848e7557c3" name="Default Changelist" comment="" />
+    <list default="true" id="cb50141b-c428-4445-87f1-21848e7557c3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,10 +26,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3889">
-              <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+            <state relative-caret-position="469">
+              <caret line="269" selection-start-line="269" selection-end-line="269" />
               <folding>
                 <element signature="e#3217#4187#0" />
+                <element signature="n#!!block;n#main#0" />
               </folding>
             </state>
           </provider>
@@ -203,12 +206,12 @@
       <option name="presentableId" value="Default" />
       <updated>1567654960727</updated>
       <workItem from="1567654962856" duration="10442000" />
-      <workItem from="1567670313294" duration="16691000" />
+      <workItem from="1567670313294" duration="16730000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27133000" />
+    <option name="totallyTimeSpent" value="27172000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1513" height="973" extended-state="6" />
@@ -223,7 +226,7 @@
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.45314354" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.21589561" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -286,10 +289,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.rs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3889">
-          <caret line="23" column="32" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+        <state relative-caret-position="469">
+          <caret line="269" selection-start-line="269" selection-end-line="269" />
           <folding>
             <element signature="e#3217#4187#0" />
+            <element signature="n#!!block;n#main#0" />
           </folding>
         </state>
       </provider>
