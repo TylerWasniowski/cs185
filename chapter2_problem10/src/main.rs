@@ -5,43 +5,87 @@ use std::env;
 use std::fs::File;
 use std::io::Read;
 use std::path::Path;
+use std::time::SystemTime;
 
 use rand::Rng;
 use regex::Regex;
 
 #[derive(Debug)]
 pub struct HmmModel {
-    state_transition_matrix: Vec<Vec<f64>>,
-    observation_probability_matrix: Vec<Vec<f64>>,
-    initial_state_distribution_vector: Vec<f64>,
+    pub state_transition_matrix: Box<[Box<[f64]>]>,
+    pub observation_probability_matrix: Box<[Box<[f64]>]>,
+    pub initial_state_distribution_vector: Box<[f64]>,
+    alpha_matrix: Box<[Box<[f64]>]>,
+    beta_matrix: Box<[Box<[f64]>]>,
+    gamma_matrix: Box<[Box<[f64]>]>,
+    di_gamma_tensor: Box<[Box<[Box<[f64]>]>]>,
+    scale_factors: Box<[f64]>,
 }
 
 impl HmmModel {
-    pub fn train_model(number_of_hidden_state_symbols: usize, number_of_observation_symbols: usize, observations: &Vec<usize>) -> HmmModel {
+    pub fn train_model(number_of_hidden_state_symbols: usize, number_of_observation_symbols: usize, observations: &Box<[usize]>) -> HmmModel {
         let min_initial_value = 30.0;
         let max_initial_value = 70.0;
         let min_iterations = 100;
-        let max_iterations = 250;
+        let max_iterations = 100;
         let improvement_threshold = 0.01;
 
         let mut model = HmmModel {
-            state_transition_matrix: vec![Vec::with_capacity(number_of_hidden_state_symbols); number_of_hidden_state_symbols],
-            observation_probability_matrix: vec![Vec::with_capacity(number_of_observation_symbols); number_of_hidden_state_symbols],
-            initial_state_distribution_vector: Vec::with_capacity(number_of_hidden_state_symbols),
+            state_transition_matrix: vec![
+                vec![0.0;
+                     number_of_hidden_state_symbols
+                ].into_boxed_slice();
+                number_of_hidden_state_symbols
+            ].into_boxed_slice(),
+            observation_probability_matrix: vec![
+                vec![0.0;
+                     number_of_observation_symbols
+                ].into_boxed_slice();
+                number_of_hidden_state_symbols
+            ].into_boxed_slice(),
+            initial_state_distribution_vector: vec![0.0; number_of_hidden_state_symbols].into_boxed_slice(),
+            alpha_matrix: vec![
+                vec![0.0;
+                     number_of_hidden_state_symbols
+                ].into_boxed_slice();
+                observations.len()
+            ].into_boxed_slice(),
+            beta_matrix: vec![
+                vec![0.0;
+                     number_of_hidden_state_symbols
+                ].into_boxed_slice();
+                observations.len()
+            ].into_boxed_slice(),
+            gamma_matrix: vec![
+                vec![0.0;
+                     number_of_hidden_state_symbols
+                ].into_boxed_slice();
+                observations.len()
+            ].into_boxed_slice(),
+            di_gamma_tensor: vec![
+                vec![
+                    vec![0.0;
+                         number_of_hidden_state_symbols
+                    ].into_boxed_slice();
+                    number_of_hidden_state_symbols
+                ].into_boxed_slice();
+                observations.len()
+            ].into_boxed_slice(),
+            scale_factors: vec![0.0; observations.len()].into_boxed_slice(),
         };
 
         // Generate guesses
         let mut rng = rand::thread_rng();
         for i in 0..number_of_hidden_state_symbols {
             for j in 0..number_of_hidden_state_symbols {
-                model.state_transition_matrix[i].insert(j, rng.gen_range(min_initial_value, max_initial_value));
+                model.state_transition_matrix[i][j] = rng.gen_range(min_initial_value, max_initial_value);
             }
 
             for j in 0..number_of_observation_symbols {
-                model.observation_probability_matrix[i].insert(j, rng.gen_range(min_initial_value, max_initial_value));
+                model.observation_probability_matrix[i][j] = rng.gen_range(min_initial_value, max_initial_value);
             }
 
-            model.initial_state_distribution_vector.insert(i, rng.gen_range(min_initial_value, max_initial_value));
+            model.initial_state_distribution_vector[i] = rng.gen_range(min_initial_value, max_initial_value);
         }
 
         // Normalize
@@ -55,8 +99,6 @@ impl HmmModel {
         let initial_state_distribution_vector_sum = model.initial_state_distribution_vector.iter().sum::<f64>();
         model.initial_state_distribution_vector = model.initial_state_distribution_vector.iter().map(|&probability| probability / initial_state_distribution_vector_sum).collect();
 
-        println!("Initial model: {:?}", &model);
-
         let mut iterations = 0;
         let mut log_probability = std::f64::NEG_INFINITY;
         let mut old_log_probability = std::f64::NEG_INFINITY;
@@ -64,19 +106,21 @@ impl HmmModel {
         while iterations < min_iterations || (log_probability - old_log_probability).abs() > improvement_threshold && iterations < max_iterations {
             old_log_probability = log_probability;
 
-            let (alpha_matrix, scale_factors) = model.compute_alpha_matrix_and_scale_factors(&observations);
-            let beta_matrix = model.compute_beta_matrix(&observations, &scale_factors);
-            let (gamma_matrix, di_gamma_tensor) = model.compute_gamma_matrix_and_di_gamma_tensor(&observations, &alpha_matrix, &beta_matrix);
+            model.populate_alpha_matrix_and_scale_factors(&observations);
+            model.populate_beta_matrix(&observations);
+            model.compute_gamma_matrix_and_di_gamma_tensor(&observations);
 
-            model.initial_state_distribution_vector = gamma_matrix[0].to_vec();
+            model.initial_state_distribution_vector = model.gamma_matrix[0].clone();
             for i in 0..number_of_hidden_state_symbols {
                 for j in 0..number_of_hidden_state_symbols {
-                    let mut numerator = 0.0;
-                    let mut denominator = 0.0;
-                    for observation_index in 0..(observations.len() - 1) {
-                        numerator += di_gamma_tensor[observation_index][i][j];
-                        denominator += gamma_matrix[observation_index][i];
-                    }
+                    let numerator = model.di_gamma_tensor[..model.di_gamma_tensor.len() - 1]
+                        .iter()
+                        .map(|di_gamma_matrix| di_gamma_matrix[i][j])
+                        .sum::<f64>();
+                    let denominator = model.gamma_matrix[..model.gamma_matrix.len() - 1]
+                        .iter()
+                        .map(|gamma_box| gamma_box[i])
+                        .sum::<f64>();
 
                     model.state_transition_matrix[i][j] = numerator / denominator;
                 }
@@ -86,22 +130,21 @@ impl HmmModel {
                     let mut denominator = 0.0;
                     for observation_index in 0..(observations.len() - 1) {
                         if observations[observation_index] == j {
-                            numerator += gamma_matrix[observation_index][i];
+                            numerator += model.gamma_matrix[observation_index][i];
                         }
-                        denominator += gamma_matrix[observation_index][i];
+                        denominator += model.gamma_matrix[observation_index][i];
                     }
 
                     model.observation_probability_matrix[i][j] = numerator / denominator;
                 }
             }
 
-            log_probability = -(scale_factors.iter().map(|&scalar| scalar.log2())).sum::<f64>();
-            println!("Finished iteration {:?}", iterations);
+            log_probability = -(model.scale_factors.iter().map(|&scalar| scalar.log2())).sum::<f64>();
+            println!("Finished iteration {:?}. New log probability: {:.*}", iterations, 2, log_probability);
             iterations += 1;
         }
 
         println!("Done training.");
-        println!("Final model: {:?}", &model);
 
         return model;
     }
@@ -117,107 +160,91 @@ impl HmmModel {
         };
     }
 
-    fn compute_alpha_matrix_and_scale_factors(&self, observations: &Vec<usize>) -> (Vec<Vec<f64>>, Vec<f64>) {
-        let mut alpha_matrix = vec![
-            vec![0.0; self.get_number_of_hidden_state_symbols()]; observations.len()
-        ];
-        let mut scale_factors = vec![0.0; observations.len()];
-
+    fn populate_alpha_matrix_and_scale_factors(&mut self, observations: &Box<[usize]>) {
+        self.scale_factors[0] = 0.0;
         for i in 0..self.get_number_of_hidden_state_symbols() {
             // alpha_0(i) = pi_i * b_i(O_0)
-            alpha_matrix[0][i] = self.initial_state_distribution_vector[i] * self.observation_probability_matrix[i][observations[0]];
-            scale_factors[0] += alpha_matrix[0][i]
+            self.alpha_matrix[0][i] = self.initial_state_distribution_vector[i] * self.observation_probability_matrix[i][observations[0]];
+            self.scale_factors[0] += self.alpha_matrix[0][i]
         }
 
-        scale_factors[0] = 1.0 / scale_factors[0];
-        for i in 0..self.get_number_of_hidden_state_symbols() {
-            alpha_matrix[0][i] *= scale_factors[0];
-        }
+        self.scale_factors[0] = 1.0 / self.scale_factors[0];
+        self.alpha_matrix[0] = self.alpha_matrix[0].iter().map(|&alpha_value| self.scale_factors[0] * alpha_value).collect();
 
         for observation_index in 1..observations.len() {
+            self.scale_factors[observation_index] = 0.0;
             for i in 0..self.get_number_of_hidden_state_symbols() {
-                for j in 0..self.get_number_of_hidden_state_symbols() {
-                    // += alpha_t-1(j) * a_ji
-                    alpha_matrix[observation_index][i] += alpha_matrix[observation_index - 1][j] * self.state_transition_matrix[j][i];
-                }
+                // += alpha_t-1(j) * a_ji
+                self.alpha_matrix[observation_index][i] = self.alpha_matrix[observation_index - 1]
+                    .iter()
+                    .enumerate()
+                    .map(|alpha_value_pair| alpha_value_pair.1 * self.state_transition_matrix[alpha_value_pair.0][i])
+                    .sum::<f64>();
 
                 // = sum(alpha_t-1(j) * a_ji) * b_i(O_t)
-                alpha_matrix[observation_index][i] *= self.observation_probability_matrix[i][observations[observation_index]];
-                scale_factors[observation_index] += alpha_matrix[observation_index][i];
+                self.alpha_matrix[observation_index][i] *= self.observation_probability_matrix[i][observations[observation_index]];
+                self.scale_factors[observation_index] += self.alpha_matrix[observation_index][i];
             }
 
-
-            scale_factors[observation_index] = 1.0 / scale_factors[observation_index];
+            self.scale_factors[observation_index] = 1.0 / self.scale_factors[observation_index];
             for i in 0..self.get_number_of_hidden_state_symbols() {
-                alpha_matrix[observation_index][i] *= scale_factors[observation_index];
+                self.alpha_matrix[observation_index][i] *= self.scale_factors[observation_index];
             }
         }
-
-        return (alpha_matrix, scale_factors);
     }
 
-    fn compute_beta_matrix(&self, observations: &Vec<usize>, scale_factors: &Vec<f64>) -> Vec<Vec<f64>> {
-        let mut beta_matrix = vec![
-            vec![0.0; self.get_number_of_hidden_state_symbols()]; observations.len()
-        ];
-
+    fn populate_beta_matrix(&mut self, observations: &Box<[usize]>) {
         // beta_T-1(i) = c_T-1
-        beta_matrix[observations.len() - 1] = vec![scale_factors[observations.len() - 1]; self.get_number_of_hidden_state_symbols()];
+        self.beta_matrix[observations.len() - 1] = vec![
+            self.scale_factors[observations.len() - 1];
+            self.get_number_of_hidden_state_symbols()
+        ].into_boxed_slice();
 
         // From T-2 to 0
         for observation_index in (0..(observations.len() - 1)).rev() {
             for i in 0..self.get_number_of_hidden_state_symbols() {
+                self.beta_matrix[observation_index][i] = 0.0;
                 for j in 0..self.get_number_of_hidden_state_symbols() {
                     // += a_ij * b_j(O_t+1) * beta_t+1(j)
-                    beta_matrix[observation_index][i] += self.state_transition_matrix[i][j] * self.observation_probability_matrix[j][observations[observation_index + 1]] * beta_matrix[observation_index + 1][j];
+                    self.beta_matrix[observation_index][i] += self.state_transition_matrix[i][j] * self.observation_probability_matrix[j][observations[observation_index + 1]] * self.beta_matrix[observation_index + 1][j];
                 }
 
-                beta_matrix[observation_index][i] *= scale_factors[observation_index];
+                self.beta_matrix[observation_index][i] *= self.scale_factors[observation_index];
             }
         }
-
-        return beta_matrix;
     }
 
-    fn compute_gamma_matrix_and_di_gamma_tensor(&self, observations: &Vec<usize>, alpha_matrix: &Vec<Vec<f64>>, beta_matrix: &Vec<Vec<f64>>) -> (Vec<Vec<f64>>, Vec<Vec<Vec<f64>>>) {
-        let mut gamma_matrix = vec![
-            vec![0.0; self.get_number_of_hidden_state_symbols()]; observations.len()
-        ];
-        let mut di_gamma_tensor = vec![
-            vec![Vec::with_capacity(self.get_number_of_hidden_state_symbols()); self.get_number_of_hidden_state_symbols()]; observations.len()
-        ];
-
+    fn compute_gamma_matrix_and_di_gamma_tensor(&mut self, observations: &Box<[usize]>) {
         // From 0 to T-2
         for observation_index in 0..(observations.len() - 1) {
             let mut denominator = 0.0;
             for i in 0..self.get_number_of_hidden_state_symbols() {
                 for j in 0..self.get_number_of_hidden_state_symbols() {
                     // += alpha_t(t) * a_ij * b_j(O_t+1) * beta_t+1(j)
-                    denominator += alpha_matrix[observation_index][i] * self.state_transition_matrix[i][j] * self.observation_probability_matrix[j][observations[observation_index + 1]] * beta_matrix[observation_index + 1][j];
+                    denominator += self.alpha_matrix[observation_index][i] * self.state_transition_matrix[i][j] * self.observation_probability_matrix[j][observations[observation_index + 1]] * self.beta_matrix[observation_index + 1][j];
                 }
             }
 
             for i in 0..self.get_number_of_hidden_state_symbols() {
+                self.gamma_matrix[observation_index][i] = 0.0;
                 for j in 0..self.get_number_of_hidden_state_symbols() {
                     // += (alpha_t(i) * a_ij * b_j(O_t+1) * beta_t+1(j)) / denom
-                    di_gamma_tensor[observation_index][i].insert(j, (alpha_matrix[observation_index][i] * self.state_transition_matrix[i][j] * self.observation_probability_matrix[j][observations[observation_index + 1]] * beta_matrix[observation_index + 1][j]) / denominator);
+                    self.di_gamma_tensor[observation_index][i][j] = (self.alpha_matrix[observation_index][i] * self.state_transition_matrix[i][j] * self.observation_probability_matrix[j][observations[observation_index + 1]] * self.beta_matrix[observation_index + 1][j]) / denominator;
                     // += di-gamma_t(i, j)
-                    gamma_matrix[observation_index][i] += di_gamma_tensor[observation_index][i][j];
+                    self.gamma_matrix[observation_index][i] += self.di_gamma_tensor[observation_index][i][j];
                 }
             }
         }
 
-        let denominator = alpha_matrix[observations.len() - 1].iter().sum::<f64>();
-        gamma_matrix[observations.len() - 1] = alpha_matrix[observations.len() - 1].iter().map(|&alpha_value| alpha_value / denominator).collect();
-
-        return (gamma_matrix, di_gamma_tensor);
+        let denominator = self.alpha_matrix[observations.len() - 1].iter().sum::<f64>();
+        self.gamma_matrix[observations.len() - 1] = self.alpha_matrix[observations.len() - 1].iter().map(|&alpha_value| alpha_value / denominator).collect();
     }
 }
 
 fn main() {
     let number_of_observation_symbols = 27;
 
-    let args: Vec<String> = env::args().collect();
+    let args: Box<[String]> = env::args().collect();
     if args.len() != 3 {
         print_usage_and_panic();
     }
@@ -239,20 +266,20 @@ fn main() {
     let sanitized_input = Regex::new("[^a-z ]").unwrap().replace_all(no_extra_spaces_no_new_lines.as_str(), "");
 
     // z, y, x, ... a, SPACE => 0, 1, 2, ..., 25, 26
-    let observations = sanitized_input.chars().map(|ch| match ch {
+    let observations: Box<[usize]> = sanitized_input.chars().map(|ch| match ch {
         ' ' => 26 as usize,
         _ => ch as usize - 'a' as usize,
     }).collect();
 
-    println!("raw_input: {:?}", raw_input);
-    println!("sanitized_input: {:?}", sanitized_input);
-    println!("observations: {:?}", observations);
+    println!("observations length: {:?}", observations.len());
 
+    let time_before_training = SystemTime::now();
     let model = HmmModel::train_model(number_of_hidden_state_symbols, number_of_observation_symbols, &observations);
+    println!("Total training time: {:.*}s", 3, time_before_training.elapsed().unwrap().as_millis() as f64 / 1000.0);
 
     for j in 0..number_of_observation_symbols {
         match j {
-            26 => print!("SPACE  "),
+            26 => print!("SPACE    "),
             _ => print!("{:?}      ", (j as u8 + 'a' as u8) as char),
         }
 
