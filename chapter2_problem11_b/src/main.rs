@@ -10,80 +10,87 @@ use std::time::SystemTime;
 use rand::Rng;
 use regex::Regex;
 
-// Using one dimensional boxes and unchecked accesses for fastest execution
-
 #[derive(Debug)]
 pub struct HmmModel {
-    pub state_transition_matrix: Vec<f64>,
-    pub observation_probability_matrix: Vec<f64>,
-    pub initial_state_distribution_vector: Vec<f64>,
-    alpha_matrix: Vec<f64>,
-    beta_matrix: Vec<f64>,
-    gamma_matrix: Vec<f64>,
-    di_gamma_tensor: Vec<f64>,
-    scale_factors: Vec<f64>,
+    pub state_transition_matrix: Box<[Box<[f64]>]>,
+    pub observation_probability_matrix: Box<[Box<[f64]>]>,
+    pub initial_state_distribution_vector: Box<[f64]>,
+    alpha_matrix: Box<[Box<[f64]>]>,
+    beta_matrix: Box<[Box<[f64]>]>,
+    gamma_matrix: Box<[Box<[f64]>]>,
+    di_gamma_tensor: Box<[Box<[Box<[f64]>]>]>,
+    scale_factors: Box<[f64]>,
 }
 
 impl HmmModel {
-    pub fn train_model(number_of_hidden_state_symbols: usize, number_of_observation_symbols: usize, observations: &Vec<usize>) -> HmmModel {
-        let min_initial_value = 30.0;
-        let max_initial_value = 70.0;
+    pub fn train_model(number_of_hidden_state_symbols: usize, number_of_observation_symbols: usize, observations: &Box<[usize]>) -> HmmModel {
+        let min_initial_value = 5.0;
+        let max_initial_value = 95.0;
         let min_iterations = 100;
-        let max_iterations = 100;
+        let max_iterations = 300;
         let improvement_threshold = 0.01;
 
         let mut model = HmmModel {
             state_transition_matrix: vec![
-                0.0;
-                number_of_hidden_state_symbols * number_of_hidden_state_symbols
-            ],
+                vec![0.0;
+                     number_of_hidden_state_symbols
+                ].into_boxed_slice();
+                number_of_hidden_state_symbols
+            ].into_boxed_slice(),
             observation_probability_matrix: vec![
-                0.0;
-                number_of_hidden_state_symbols * number_of_observation_symbols
-            ],
-            initial_state_distribution_vector: vec![0.0; number_of_hidden_state_symbols],
+                vec![0.0;
+                     number_of_observation_symbols
+                ].into_boxed_slice();
+                number_of_hidden_state_symbols
+            ].into_boxed_slice(),
+            initial_state_distribution_vector: vec![0.0; number_of_hidden_state_symbols].into_boxed_slice(),
             alpha_matrix: vec![
-                0.0;
-                observations.len() * number_of_hidden_state_symbols
-            ],
+                vec![0.0;
+                     number_of_hidden_state_symbols
+                ].into_boxed_slice();
+                observations.len()
+            ].into_boxed_slice(),
             beta_matrix: vec![
-                0.0;
-                observations.len() * number_of_hidden_state_symbols
-            ],
+                vec![0.0;
+                     number_of_hidden_state_symbols
+                ].into_boxed_slice();
+                observations.len()
+            ].into_boxed_slice(),
             gamma_matrix: vec![
-                0.0;
-                observations.len() * number_of_hidden_state_symbols
-            ],
+                vec![0.0;
+                     number_of_hidden_state_symbols
+                ].into_boxed_slice();
+                observations.len()
+            ].into_boxed_slice(),
             di_gamma_tensor: vec![
-                0.0;
-                observations.len() * number_of_hidden_state_symbols * number_of_hidden_state_symbols
-            ],
-            scale_factors: vec![0.0; observations.len()],
+                vec![
+                    vec![0.0;
+                         number_of_hidden_state_symbols
+                    ].into_boxed_slice();
+                    number_of_hidden_state_symbols
+                ].into_boxed_slice();
+                observations.len()
+            ].into_boxed_slice(),
+            scale_factors: vec![0.0; observations.len()].into_boxed_slice(),
         };
 
         // Generate guesses
         let mut rng = rand::thread_rng();
-        model.state_transition_matrix = model.state_transition_matrix
-            .iter()
-            .map(|_| rng.gen_range(min_initial_value, max_initial_value))
-            .collect();
+        for i in 0..number_of_hidden_state_symbols {
+            for j in 0..number_of_hidden_state_symbols {
+                model.state_transition_matrix[i][j] = rng.gen_range(min_initial_value, max_initial_value);
+            }
 
-        model.observation_probability_matrix = model.observation_probability_matrix
-            .iter()
-            .map(|_| rng.gen_range(min_initial_value, max_initial_value))
-            .collect();
+            for j in 0..number_of_observation_symbols {
+                model.observation_probability_matrix[i][j] = rng.gen_range(min_initial_value, max_initial_value);
+            }
 
-
-        model.initial_state_distribution_vector = model.initial_state_distribution_vector
-            .iter()
-            .map(|_| rng.gen_range(min_initial_value, max_initial_value))
-            .collect();
+            model.initial_state_distribution_vector[i] = rng.gen_range(min_initial_value, max_initial_value);
+        }
 
         // Normalize
         for i in 0..number_of_hidden_state_symbols {
-            let start = i * number_of_hidden_state_symbols;
-            let end = start + number_of_hidden_state_symbols;
-            let state_transition_row_sum = model.state_transition_matrix[i * number_of_hidden_state_symbols..(i + 1) * number_of_hidden_state_symbols].iter().sum::<f64>();
+            let state_transition_row_sum = model.state_transition_matrix[i].iter().sum::<f64>();
             model.state_transition_matrix[i] = model.state_transition_matrix[i].iter().map(|&probability| probability / state_transition_row_sum).collect();
 
             let observation_probability_row_sum = model.observation_probability_matrix[i].iter().sum::<f64>();
@@ -103,7 +110,7 @@ impl HmmModel {
             model.populate_beta_matrix(&observations);
             model.compute_gamma_matrix_and_di_gamma_tensor(&observations);
 
-            model.gamma_matrix[0..number_of_hidden_state_symbols].clone_into(&mut model.initial_state_distribution_vector);
+            model.initial_state_distribution_vector = model.gamma_matrix[0].clone();
             for i in 0..number_of_hidden_state_symbols {
                 for j in 0..number_of_hidden_state_symbols {
                     let numerator = model.di_gamma_tensor[..model.di_gamma_tensor.len() - 1]
@@ -153,7 +160,7 @@ impl HmmModel {
         };
     }
 
-    fn populate_alpha_matrix_and_scale_factors(&mut self, observations: &Vec<usize>) {
+    fn populate_alpha_matrix_and_scale_factors(&mut self, observations: &Box<[usize]>) {
         self.scale_factors[0] = 0.0;
         for i in 0..self.get_number_of_hidden_state_symbols() {
             // alpha_0(i) = pi_i * b_i(O_0)
@@ -235,7 +242,7 @@ impl HmmModel {
 }
 
 fn main() {
-    let number_of_observation_symbols = 27;
+    let number_of_observation_symbols = 26;
 
     let args: Box<[String]> = env::args().collect();
     if args.len() != 3 {
@@ -258,7 +265,7 @@ fn main() {
     let no_extra_spaces_no_new_lines = Regex::new("(\n\\s*)|(\\s+\\s+)").unwrap().replace_all(lowercase_input.as_str(), " ").to_string();
     let sanitized_input = Regex::new("[^a-z ]").unwrap().replace_all(no_extra_spaces_no_new_lines.as_str(), "");
 
-    // z, y, x, ... a, SPACE => 0, 1, 2, ..., 25, 26
+    // a, b, c, ..., z, SPACE => 0, 1, 2, ..., 25, 26
     let observations: Box<[usize]> = sanitized_input.chars().map(|ch| match ch {
         ' ' => 26 as usize,
         _ => ch as usize - 'a' as usize,
