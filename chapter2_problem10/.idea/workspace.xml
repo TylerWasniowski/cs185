@@ -1,214 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/main.rs" line="276" mnemonic="7" />
+    <bookmark url="file://$PROJECT_DIR$/src/main.rs" line="263" mnemonic="7" />
   </component>
   <component name="CargoProjects">
     <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cb50141b-c428-4445-87f1-21848e7557c3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/target/.rustc_info.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.cargo-lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/aho-corasick-10b3754007e6271b/dep-lib-aho_corasick-10b3754007e6271b" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/aho-corasick-10b3754007e6271b/invoked.timestamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/aho-corasick-10b3754007e6271b/lib-aho_corasick-10b3754007e6271b" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/aho-corasick-10b3754007e6271b/lib-aho_corasick-10b3754007e6271b.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/c2-chacha-bb9761e374da434b/dep-lib-c2_chacha-bb9761e374da434b" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/c2-chacha-bb9761e374da434b/invoked.timestamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/c2-chacha-bb9761e374da434b/lib-c2_chacha-bb9761e374da434b" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/c2-chacha-bb9761e374da434b/lib-c2_chacha-bb9761e374da434b.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/cfg-if-7f7a470e80c4b9ac/dep-lib-cfg_if-7f7a470e80c4b9ac" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/cfg-if-7f7a470e80c4b9ac/invoked.timestamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/cfg-if-7f7a470e80c4b9ac/lib-cfg_if-7f7a470e80c4b9ac" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/cfg-if-7f7a470e80c4b9ac/lib-cfg_if-7f7a470e80c4b9ac.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/chapter2_problem10-083d2985aa963c1e/bin-chapter2_problem10-083d2985aa963c1e" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/chapter2_problem10-083d2985aa963c1e/bin-chapter2_problem10-083d2985aa963c1e.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/chapter2_problem10-083d2985aa963c1e/dep-bin-chapter2_problem10-083d2985aa963c1e" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/chapter2_problem10-083d2985aa963c1e/invoked.timestamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/getrandom-76e534b7205d4acf/build-script-build_script_build-76e534b7205d4acf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/getrandom-76e534b7205d4acf/build-script-build_script_build-76e534b7205d4acf.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/getrandom-76e534b7205d4acf/dep-build-script-build_script_build-76e534b7205d4acf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/getrandom-76e534b7205d4acf/invoked.timestamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/getrandom-ad7a204282d302b0/run-build-script-build_script_build-ad7a204282d302b0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/getrandom-ad7a204282d302b0/run-build-script-build_script_build-ad7a204282d302b0.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/getrandom-bb4644b42b08388b/dep-lib-getrandom-bb4644b42b08388b" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/getrandom-bb4644b42b08388b/invoked.timestamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/getrandom-bb4644b42b08388b/lib-getrandom-bb4644b42b08388b" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/getrandom-bb4644b42b08388b/lib-getrandom-bb4644b42b08388b.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/lazy_static-6f2b5917099e5d62/dep-lib-lazy_static-6f2b5917099e5d62" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/lazy_static-6f2b5917099e5d62/invoked.timestamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/lazy_static-6f2b5917099e5d62/lib-lazy_static-6f2b5917099e5d62" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/lazy_static-6f2b5917099e5d62/lib-lazy_static-6f2b5917099e5d62.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/memchr-5c0d32a51247c652/dep-lib-memchr-5c0d32a51247c652" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/memchr-5c0d32a51247c652/invoked.timestamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/memchr-5c0d32a51247c652/lib-memchr-5c0d32a51247c652" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/memchr-5c0d32a51247c652/lib-memchr-5c0d32a51247c652.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/memchr-912a6ca6c00802d2/build-script-build_script_build-912a6ca6c00802d2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/memchr-912a6ca6c00802d2/build-script-build_script_build-912a6ca6c00802d2.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/memchr-912a6ca6c00802d2/dep-build-script-build_script_build-912a6ca6c00802d2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/memchr-912a6ca6c00802d2/invoked.timestamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/memchr-af3f6ca6495877c4/run-build-script-build_script_build-af3f6ca6495877c4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/memchr-af3f6ca6495877c4/run-build-script-build_script_build-af3f6ca6495877c4.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/ppv-lite86-c9339b77ecf795a1/dep-lib-ppv_lite86-c9339b77ecf795a1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/ppv-lite86-c9339b77ecf795a1/invoked.timestamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/ppv-lite86-c9339b77ecf795a1/lib-ppv_lite86-c9339b77ecf795a1" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/ppv-lite86-c9339b77ecf795a1/lib-ppv_lite86-c9339b77ecf795a1.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/rand-bf4bc73cb822e4b4/dep-lib-rand-bf4bc73cb822e4b4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/rand-bf4bc73cb822e4b4/invoked.timestamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/rand-bf4bc73cb822e4b4/lib-rand-bf4bc73cb822e4b4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/rand-bf4bc73cb822e4b4/lib-rand-bf4bc73cb822e4b4.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/rand_chacha-86fd7301ee506f05/dep-lib-rand_chacha-86fd7301ee506f05" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/rand_chacha-86fd7301ee506f05/invoked.timestamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/rand_chacha-86fd7301ee506f05/lib-rand_chacha-86fd7301ee506f05" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/rand_chacha-86fd7301ee506f05/lib-rand_chacha-86fd7301ee506f05.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/rand_core-4de706e414e40822/dep-lib-rand_core-4de706e414e40822" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/rand_core-4de706e414e40822/invoked.timestamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/rand_core-4de706e414e40822/lib-rand_core-4de706e414e40822" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/rand_core-4de706e414e40822/lib-rand_core-4de706e414e40822.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/regex-44ea1e603584a2f0/dep-lib-regex-44ea1e603584a2f0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/regex-44ea1e603584a2f0/invoked.timestamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/regex-44ea1e603584a2f0/lib-regex-44ea1e603584a2f0" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/regex-44ea1e603584a2f0/lib-regex-44ea1e603584a2f0.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/regex-syntax-d95592de446f8386/dep-lib-regex_syntax-d95592de446f8386" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/regex-syntax-d95592de446f8386/invoked.timestamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/regex-syntax-d95592de446f8386/lib-regex_syntax-d95592de446f8386" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/regex-syntax-d95592de446f8386/lib-regex_syntax-d95592de446f8386.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/thread_local-9ec6fa5948483252/dep-lib-thread_local-9ec6fa5948483252" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/thread_local-9ec6fa5948483252/invoked.timestamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/thread_local-9ec6fa5948483252/lib-thread_local-9ec6fa5948483252" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/.fingerprint/thread_local-9ec6fa5948483252/lib-thread_local-9ec6fa5948483252.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/build/getrandom-76e534b7205d4acf/build-script-build.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/build/getrandom-76e534b7205d4acf/build_script_build-76e534b7205d4acf.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/build/getrandom-76e534b7205d4acf/build_script_build-76e534b7205d4acf.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/build/getrandom-76e534b7205d4acf/build_script_build-76e534b7205d4acf.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/build/getrandom-ad7a204282d302b0/invoked.timestamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/build/getrandom-ad7a204282d302b0/output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/build/getrandom-ad7a204282d302b0/root-output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/build/getrandom-ad7a204282d302b0/stderr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/build/memchr-912a6ca6c00802d2/build-script-build.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/build/memchr-912a6ca6c00802d2/build_script_build-912a6ca6c00802d2.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/build/memchr-912a6ca6c00802d2/build_script_build-912a6ca6c00802d2.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/build/memchr-912a6ca6c00802d2/build_script_build-912a6ca6c00802d2.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/build/memchr-af3f6ca6495877c4/invoked.timestamp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/build/memchr-af3f6ca6495877c4/output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/build/memchr-af3f6ca6495877c4/root-output" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/build/memchr-af3f6ca6495877c4/stderr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/chapter2_problem10.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/chapter2_problem10.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/chapter2_problem10.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/aho_corasick-10b3754007e6271b.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/c2_chacha-bb9761e374da434b.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/cfg_if-7f7a470e80c4b9ac.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/chapter2_problem10-083d2985aa963c1e.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/chapter2_problem10-083d2985aa963c1e.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/chapter2_problem10-083d2985aa963c1e.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/getrandom-bb4644b42b08388b.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/lazy_static-6f2b5917099e5d62.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/libaho_corasick-10b3754007e6271b.rlib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/libaho_corasick-10b3754007e6271b.rmeta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/libc2_chacha-bb9761e374da434b.rlib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/libc2_chacha-bb9761e374da434b.rmeta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/libcfg_if-7f7a470e80c4b9ac.rlib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/libcfg_if-7f7a470e80c4b9ac.rmeta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/libgetrandom-bb4644b42b08388b.rlib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/libgetrandom-bb4644b42b08388b.rmeta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/liblazy_static-6f2b5917099e5d62.rlib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/liblazy_static-6f2b5917099e5d62.rmeta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/libmemchr-5c0d32a51247c652.rlib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/libmemchr-5c0d32a51247c652.rmeta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/libppv_lite86-c9339b77ecf795a1.rlib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/libppv_lite86-c9339b77ecf795a1.rmeta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/librand-bf4bc73cb822e4b4.rlib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/librand-bf4bc73cb822e4b4.rmeta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/librand_chacha-86fd7301ee506f05.rlib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/librand_chacha-86fd7301ee506f05.rmeta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/librand_core-4de706e414e40822.rlib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/librand_core-4de706e414e40822.rmeta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/libregex-44ea1e603584a2f0.rlib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/libregex-44ea1e603584a2f0.rmeta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/libregex_syntax-d95592de446f8386.rlib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/libregex_syntax-d95592de446f8386.rmeta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/libthread_local-9ec6fa5948483252.rlib" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/libthread_local-9ec6fa5948483252.rmeta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/memchr-5c0d32a51247c652.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/ppv_lite86-c9339b77ecf795a1.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/rand-bf4bc73cb822e4b4.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/rand_chacha-86fd7301ee506f05.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/rand_core-4de706e414e40822.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/regex-44ea1e603584a2f0.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/regex_syntax-d95592de446f8386.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/deps/thread_local-9ec6fa5948483252.d" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/109xizvhhci9iky5.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/12tr7wzlua56328f.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/13x39e59lzc5612c.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/16jnt35nrrej2j40.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/180drpj9qd4oa0ua.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/18y52vshksjlr6nu.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/1ag84q4pd20e4jz6.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/1dioowll37h08nlu.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/1dmvqczu6nboc8mg.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/1dubu58hdoczi1lh.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/1fugcx34gyf0fopk.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/1jg7s3khx5dmvz8j.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/1n2rsdb85q1lkuov.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/1obidm55d56qw60n.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/1tz1ryc9sgjihhv7.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/22u5jejgbor4qxcj.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/25x5qtmnal344yq5.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/26qwroo5prr98uoy.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/2alyapzqw4zo6iiw.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/2c2346im3lxemcks.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/2cuw4q1f6it0mrjw.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/2dxj5kpm5gechvb4.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/2g5adhyxb23295xd.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/2kt2kyxqibzyf4km.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/2lt9qz5fi7qxizhu.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/2q8d68ee4eqlsizx.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/2uc992jd36xsb3ps.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/2vhxwug5ai2rfcch.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/2zjzygs16m88z11p.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/30r5kglsum09i6ou.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/312agqurz38ss844.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/31babak2gsdc478g.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/3baqxqvttxzlammi.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/3bue8tmr37uarv6v.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/3c9zrcshz4xf44f7.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/3fqkd48mudcw92d6.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/3s0htdqe2ede4yxe.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/3vd2mj912et7v5vp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/3whwo956lykfj8gb.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/3y69c9chm5jjyt9y.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/3zpmt3c6x9n59y14.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/47n6ukuh74pohuuz.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/4h3kcqnfih5m35be.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/4j3urm0ve1eg8m6l.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/4k0oki7vj21rv2u.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/4u1p3sdn0rkz2fst.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/4uzmlhngm7juktas.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/53dyuf77nsahehwl.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/55vz2qtrji72mzne.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/5dau7oghub4veab2.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/5fiqm4uvqg1qmocc.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/8cckkzdaiox64o0.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/dep-graph.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/ee3yyw7vq8i070d.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/f5yc0avgdt5ciuq.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/fo0qn0tiltlxo9v.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/g04x3vmmpov8pv8.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/gcj4vawqwd9mbxb.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/i9wwjdeobgter2w.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/k6y31mh9hus3em.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/kj498cywlsmjf89.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/lit61vc7ih25mzu.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/naa4opuumgkftig.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/query-cache.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/work-products.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9-230hegav5g8cc/zefrmflf4h0sutn.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/debug/incremental/chapter2_problem10-1yu1jn1c3armd/s-ffptg3ymd2-1gaj7s9.lock" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../chapter2_problem15/chapter2_problem15.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BrownCorpus-beginning.txt" beforeDir="false" afterPath="$PROJECT_DIR$/BrownCorpus-beginning.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chapter2_problem3/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chapter2_problem3/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chapter2_problem3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chapter2_problem3/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chapter2_problem3/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/../chapter2_problem3/src/main.rs" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -226,8 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="22">
-              <caret line="14" column="33" lean-forward="true" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="38" />
+            <state relative-caret-position="198">
+              <caret line="236" column="11" lean-forward="true" selection-start-line="236" selection-start-column="11" selection-end-line="236" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -235,7 +40,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-pc-windows-msvc/lib/rustlib/src/rust/src/libstd/sys_common/backtrace.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
+            <state relative-caret-position="697">
               <caret line="41" selection-start-line="41" selection-end-line="41" />
             </state>
           </provider>
@@ -244,7 +49,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-pc-windows-msvc/lib/rustlib/src/rust/src/liballoc/str.rs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
+            <state relative-caret-position="4301">
               <caret line="261" column="23" selection-start-line="261" selection-start-column="23" selection-end-line="261" selection-end-column="23" />
             </state>
           </provider>
@@ -294,6 +99,7 @@
       <find>+=</find>
       <find>di_gamma_tensor</find>
       <find>di_gamm</find>
+      <find>Box</find>
     </findStrings>
     <replaceStrings>
       <replace>model.</replace>
@@ -304,6 +110,7 @@
       <replace>[f32]</replace>
       <replace>&lt;[Box&lt;[f32]&gt;]</replace>
       <replace>f64</replace>
+      <replace>Vec</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -320,17 +127,9 @@
   <component name="MacroExpansionManager">
     <option name="directoryName" value="bWYkZXzg" />
   </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-      </list>
-    </option>
-  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
-    <option name="y" value="14" />
-    <option name="width" value="2196" />
+    <option name="x" value="734" />
+    <option name="width" value="1522" />
     <option name="height" value="1932" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -338,32 +137,19 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="chapter2_problem10" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chapter2_problem10" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chapter2_problem10" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chapter2_problem10" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Cargo.toml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../chapter2_problem3" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
@@ -428,12 +214,14 @@
       <option name="presentableId" value="Default" />
       <updated>1567654960727</updated>
       <workItem from="1567654962856" duration="10442000" />
-      <workItem from="1567670313294" duration="32147000" />
+      <workItem from="1567670313294" duration="33704000" />
+      <workItem from="1568312822378" duration="8555000" />
+      <workItem from="1568692767307" duration="335000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42589000" />
+    <option name="totallyTimeSpent" value="53036000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1513" height="973" extended-state="6" />
@@ -448,7 +236,7 @@
       <window_info id="UI Designer" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38196915" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.38196915" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -485,20 +273,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-pc-windows-msvc/lib/rustlib/src/rust/src/libstd/panic.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="391" selection-start-line="391" selection-end-line="391" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="236" column="11" lean-forward="true" selection-start-line="236" selection-start-column="11" selection-end-line="236" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-pc-windows-msvc/lib/rustlib/src/rust/src/libstd/sys_common/backtrace.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="697">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-pc-windows-msvc/lib/rustlib/src/rust/src/liballoc/str.rs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4301">
+          <caret line="261" column="23" selection-start-line="261" selection-start-column="23" selection-end-line="261" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-pc-windows-msvc/lib/rustlib/src/rust/src/liballoc/macros.rs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="782">
           <caret line="46" selection-start-line="46" selection-end-line="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Cargo.lock">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-pc-windows-msvc/lib/rustlib/src/rust/src/liballoc/str.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="261" column="23" selection-start-line="261" selection-start-column="23" selection-end-line="261" selection-end-column="23" />
         </state>
       </provider>
     </entry>
@@ -509,26 +315,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-pc-windows-msvc/lib/rustlib/src/rust/src/libstd/panic.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="391" selection-start-line="391" selection-end-line="391" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rustup/toolchains/stable-x86_64-pc-windows-msvc/lib/rustlib/src/rust/src/libstd/sys_common/backtrace.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.rs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="14" column="33" lean-forward="true" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="38" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/Cargo.lock">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
