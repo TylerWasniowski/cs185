@@ -1,0 +1,11 @@
+[package]
+name = "chapter2_problem14_a"
+version = "0.1.0"
+authors = ["TylerWasniowski <TylerWasniowski@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rand = "0.7.0"
+regex = "1.3.1"

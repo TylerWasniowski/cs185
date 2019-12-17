@@ -15,6 +15,7 @@ pub struct HmmModel {
     pub state_transition_matrix: Box<[Box<[f64]>]>,
     pub observation_probability_matrix: Box<[Box<[f64]>]>,
     pub initial_state_distribution_vector: Box<[f64]>,
+    pub log_probability: f64,
     alpha_matrix: Box<[Box<[f64]>]>,
     beta_matrix: Box<[Box<[f64]>]>,
     gamma_matrix: Box<[Box<[f64]>]>,
@@ -39,6 +40,7 @@ impl HmmModel {
                 number_of_hidden_state_symbols
             ].into_boxed_slice(),
             initial_state_distribution_vector: vec![0.0; number_of_hidden_state_symbols].into_boxed_slice(),
+            log_probability: std::f64::NEG_INFINITY,
             alpha_matrix: vec![
                 vec![0.0;
                      number_of_hidden_state_symbols
@@ -115,11 +117,10 @@ impl HmmModel {
             }
 
             log_probability = -(model.scale_factors.iter().map(|&scalar| scalar.log2())).sum::<f64>();
-            println!("Finished iteration {:?}. New log probability: {:.*}", iterations, 2, log_probability);
             iterations += 1;
         }
 
-        println!("Done training.");
+        model.log_probability = log_probability;
 
         return model;
     }
@@ -246,50 +247,81 @@ fn main() {
         _ => ch as usize - 'a' as usize,
     }).collect();
 
-    println!("observations length: {:?}", observations.len());
+    let mut best_models = Vec::new();
+    for t in [1000, 400, 300].iter() {
+        for n in [1, 10, 100, 1000].iter() {
+            let mut best_model = HmmModel {
+                state_transition_matrix: Vec::new().into_boxed_slice(),
+                observation_probability_matrix: Vec::new().into_boxed_slice(),
+                initial_state_distribution_vector: Vec::new().into_boxed_slice(),
+                log_probability: std::f64::NEG_INFINITY,
+                alpha_matrix: Vec::new().into_boxed_slice(),
+                beta_matrix: Vec::new().into_boxed_slice(),
+                gamma_matrix: Vec::new().into_boxed_slice(),
+                di_gamma_tensor: Vec::new().into_boxed_slice(),
+                scale_factors: Vec::new().into_boxed_slice(),
+            };
 
-    let time_before_training = SystemTime::now();
-    let model = HmmModel::train_model(number_of_hidden_state_symbols, number_of_observation_symbols, &observations);
-    println!("Total training time: {:.*}s", 3, time_before_training.elapsed().unwrap().as_millis() as f64 / 1000.0);
+            for i in 0..*n {
+                if i % (1 << 7) == 0 {
+                    println!("i/n: {:?}/{:?}, ", i, n);
+                }
+                let observations_slice = &observations[0..*t];
 
-    let mut presumed_key_list = vec![0; number_of_hidden_state_symbols];
-    for i in 0..number_of_hidden_state_symbols {
-        match i {
-            26 => print!("SPACE    "),
-            _ => print!("{:?}      ", (i as u8 + 'a' as u8) as char),
-        }
 
-        let mut state_max_probability = (0, 0.0);
-        for j in 0..number_of_observation_symbols {
-            print!("{:.*}   ", 5, model.observation_probability_matrix[i][j]);
+                let time_before_training = SystemTime::now();
+                let model = HmmModel::train_model(number_of_hidden_state_symbols, number_of_observation_symbols, &observations_slice.to_vec().into_boxed_slice());
 
-            if model.observation_probability_matrix[i][j] > state_max_probability.1 {
-                state_max_probability = (j, model.observation_probability_matrix[i][j]);
+                if model.log_probability > best_model.log_probability {
+                    best_model = model;
+                }
             }
-        }
 
-        presumed_key_list[i] = state_max_probability.0;
-        println!("{:?}", state_max_probability.0);
+            best_models.push(best_model);
+        }
     }
 
-    let presumed_key = String::from_utf8(presumed_key_list
-        .iter()
-        .map(|val| *val as u8 + 'a' as u8)
-        .collect::<Vec<u8>>())
-        .unwrap();
-    let actual_key = "gbwqodjfnkvcpzhlyitumrsaex";
-    let score = presumed_key
-        .chars()
-        .enumerate()
-        .fold(0, |sum, pair| if pair.1 as u8 == actual_key.as_bytes()[pair.0] {
-            sum + 1
-        } else {
-            sum
-        });
+    for model in best_models.iter() {
+        let mut presumed_key_list = Vec::with_capacity(26);
+        for j in 0..number_of_observation_symbols {
+            match j {
+                26 => print!("SPACE    "),
+                _ => print!("{:?}      ", (j as u8 + 'a' as u8) as char),
+            }
 
-    println!("Actual key:   {:?}", actual_key);
-    println!("Presumed key: {:?}", presumed_key);
-    println!("Score: {:?}/26 = {:.*}", score, 4, score as f64 / 26.0);
+            let mut state_max_probability = (0, 0.0);
+            for i in 0..number_of_hidden_state_symbols {
+                print!("{:.*}   ", 5, model.observation_probability_matrix[i][j]);
+
+                if model.observation_probability_matrix[i][j] > state_max_probability.1 {
+                    state_max_probability = (i, model.observation_probability_matrix[i][j]);
+                }
+            }
+
+            presumed_key_list.push(state_max_probability.0);
+            println!("{:?}", state_max_probability.0);
+        }
+
+        let presumed_key = String::from_utf8(presumed_key_list
+            .iter()
+            .map(|val| *val as u8 + 'a' as u8)
+            .collect::<Vec<u8>>())
+            .unwrap();
+        let actual_key = "cweljndfoqrvaumstxhygipbkz";
+        let score = presumed_key
+            .chars()
+            .enumerate()
+            .fold(0, |sum, pair| if pair.1 as u8 == actual_key.as_bytes()[pair.0] {
+                sum + 1
+            } else {
+                sum
+            });
+
+        println!("Actual key:   {:?}", actual_key);
+        println!("Presumed key: {:?}", presumed_key);
+        println!("Score: {:?}/26 = {:.*}", score, 4, score as f64 / 26.0);
+        println!("Log probability: {:.*}", 5, model.log_probability);
+    }
 }
 
 fn print_usage_and_panic() {
