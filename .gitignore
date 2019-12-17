@@ -12,3 +12,5 @@ Cargo.lock
 
 # Intellij
 **/.idea/**
+
+**/__pycache__/**
